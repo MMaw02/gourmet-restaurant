@@ -14,6 +14,7 @@ import java.util.Map;
 
 @RestController
 @RequestMapping("/media")
+@CrossOrigin(originPatterns = "*")
 public class MediaController {
 
     @Autowired

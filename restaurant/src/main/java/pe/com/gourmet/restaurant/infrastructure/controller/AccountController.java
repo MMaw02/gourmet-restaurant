@@ -14,6 +14,7 @@ import java.security.Principal;
 
 @RestController
 @RequestMapping("/account")
+@CrossOrigin(originPatterns = "*")
 public class AccountController {
 
     @Autowired
