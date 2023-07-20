@@ -1,0 +1,134 @@
+<div class="container mb-2">
+  <h5 style="color: #ffb633;" class="mt-2 border border-warning p-2 mb-3">
+    <b>Detalles de la Orden</b>
+  </h5>
+  <div class="card mb-3">
+    <ul class="list-group list-group-flush">
+      <li class="list-group-item">
+        <div class="row">
+          <div class="col-sm-8">
+            <h6>Order Id: #{{order.id}}</h6>
+          </div>
+          <!-- <div class="col-sm-4">
+            <h6 class="float-right" style="color: #ffb633; font-weight: bold;">{{order.status}}</h6>
+          </div> -->
+        </div>
+      </li>
+      <li class="list-group-item">
+        <!-- <div class="" *ngIf="breakfastList.length!==0"> -->
+          <h6>Comida:</h6>
+          <div class="" *ngFor="let item of order.orderProducts">
+            <div class="row mt-2">
+              <div class="col-sm-8">
+                <span>{{item.quantity}} X {{item.product.name}}</span>
+              </div>
+              <div class="col-sm-4">
+                <span class="float-right">{{item.quantity * item.product.price | number:'1.2-2' | currency:'S/'}}
+                </span>
+              </div>
+            </div>
+          </div>
+        <!-- </div> -->
+
+        <!-- <div class="mt-2" *ngIf="lunchList.length!==0">
+          <hr>
+          <h6>LUNCH</h6>
+          <div class="" *ngFor="let item of lunchList">
+            <div class="row mt-2">
+              <div class="col-sm-8">
+                <span>{{item.quantity}} X {{item.name}}</span>
+              </div>
+              <div class="col-sm-4">
+                <span class="float-right">₹ {{item.quantity * item.price}}
+                </span>
+              </div>
+            </div>
+          </div>
+        </div> -->
+        <!-- <div class="mt-2" *ngIf="dinnerList.length!==0">
+          <hr>
+          <h6>DINNER</h6>
+          <div class="" *ngFor="let item of dinnerList">
+            <div class="row mt-2">
+              <div class="col-sm-8">
+                <span>{{item.quantity}} X {{item.name}}</span>
+              </div>
+              <div class="col-sm-4">
+                <span class="float-right">₹ {{item.quantity * item.price}}
+                </span>
+              </div>
+            </div>
+          </div>
+        </div> -->
+        <!-- <div class="mt-2" *ngIf="specialDishList.length!==0">
+          <hr>
+          <h6>Special DISH</h6>
+          <div class="" *ngFor="let item of specialDishList">
+            <div class="row mt-2">
+              <div class="col-sm-8">
+                <span>{{item.quantity}} X {{item.name}}</span>
+              </div>
+              <div class="col-sm-4">
+                <span class="float-right">₹ {{item.quantity * item.price}}
+                </span>
+              </div>
+            </div>
+          </div>
+        </div> -->
+        <hr style="border-top: 2px dashed;">
+        <div class="row mt-2">
+          <div class="col-sm-8">
+            <h6>Total Orden:</h6>
+          </div>
+          <div class="col-sm-4">
+            <h6 class="float-right">{{totalPrice | currency:'S/'}}</h6>
+          </div>
+        </div>
+        <!-- <div class="row mt-2" *ngIf="null!=order.coupon">
+          <div class="col-sm-8">
+            <span>Discount ({{order.coupon.couponCode}})</span>
+          </div>
+          <div class="col-sm-4">
+            <span class="float-right">- ₹ {{order.coupon.discountAmount}}</span>
+          </div>
+        </div> -->
+        <!-- <div class="row mt-2">
+          <div class="col-sm-8">
+            <span>Tax Amount</span>
+          </div>
+          <div class="col-sm-4">
+            <span class="float-right">₹ {{order.tax}}</span>
+          </div>
+        </div> -->
+        <!-- <div class="row mt-2">
+          <div class="col-sm-8">
+            <span>Delivery Fee</span>
+          </div>
+          <div class="col-sm-4">
+            <span class="float-right">₹ {{order.deliveryFee}}</span>
+          </div>
+        </div> -->
+        <hr>
+        <div class="row mt-2">
+          <div class="col-sm-8">
+            <h6>Pagar en Total:</h6>
+          </div>
+          <div class="col-sm-4">
+            <h6 class="float-right" style="color: #ffb633; font-weight: bold;"> {{totalPrice | currency:'S/'}}</h6>
+          </div>
+        </div>
+
+      </li>
+      <li class="list-group-item">
+        <div class="row">
+          <div class="col-sm-8 mt-2">
+            <h6>{{order.createdAt | date : "MMMM dd, h:m a"}}</h6>
+          </div>
+          <div class="col-sm-4">
+            <button type="submit" class="btn float-right" style="background-color: #ffb633;">Imprimir Factura</button>
+          </div>
+        </div>
+      </li>
+    </ul>
+  </div>
+</div>

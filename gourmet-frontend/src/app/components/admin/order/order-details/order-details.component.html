@@ -1,0 +1,59 @@
+<!-- Page Content -->
+<div class="container">
+
+
+  <!-- Page Heading/Breadcrumbs -->
+  <h1 class="mt-4 mb-3">
+    <small>Resumen de la orden</small>
+  </h1>
+
+  <!-- Blog Post -->
+  <div class="card mb-4">
+    <div class="card-body">
+      <div class="row">
+      <div class="col-lg-9">
+        <div class="card-body">
+          <h4 class="card-title">Datos Orden</h4>
+          <h6>Order N°: {{ order.id }}</h6>
+          <h6>Fecha: {{ order.createdAt | date:'dd/MM/yyyy h:m a'}}</h6>
+          <h4 class="card-title mt-4">
+            Productos Orden
+          </h4>
+          <div class="alert alert-light" role="alert">
+            <table class="table">
+              <thead>
+                <tr>
+                  <th scope="col">Producto</th>
+                  <th scope="col">Precio</th>
+                  <th scope="col">Cantidad</th>
+                  <th scope="col">Total</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let item  of order.orderProducts">
+                  <td>{{ item.product.name }}</td>
+                  <td>{{ item.product.price | currency:'S/' }}</td>
+                  <td>{{ item.quantity }}</td>
+                  <td>{{ item.quantity * item.product.price | number:'1.2-2' | currency:'S/'}}</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-3">
+        <h4 class="card-title">Detalles del cliente</h4>
+
+        <ul class="list-group">
+          <li class="list-group-item"><h6>Usuario: {{ order.user!.username }}</h6></li>
+          <li class="list-group-item"><h6>Nombre: {{ order.user!.firstname  + ' ' + order.user!.lastname}}</h6></li>
+          <li class="list-group-item"><h6>DNI: {{ order.user!.dni }}</h6></li>
+          <li class="list-group-item"><h6>Correo: {{ order.user!.email }}</h6></li>
+          <li class="list-group-item"><h6>Telefono: {{ order.user!.cellphone }}</h6></li>
+          <li class="list-group-item"><h6>Dirección: {{ order.user!.address }}</h6></li>
+        </ul>
+      </div>
+      </div>
+    </div>
+  </div>
+</div>

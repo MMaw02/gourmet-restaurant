@@ -1,0 +1,28 @@
+<h1>Lista de Orden</h1>
+
+<div class="text-end">
+
+<table class="table table-hover mt-5">
+  <thead>
+    <tr>
+      <th>Id</th>
+      <th>Nombre Cliente</th>
+      <th>DNI Cliente</th>
+      <th>Fecha Orden</th>
+      <th>Total Orden</th>
+      <th>Detalles Order</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let order of orders">
+      <td> {{ order.id }} </td>
+      <td> {{ order.user!.username }} </td>
+      <td> {{ order.user!.dni }} </td>
+      <td> {{ order.createdAt | date:'dd/MM/yyyy h:m a' }} </td>
+      <td> {{ totalPriceOrder(order) | number:'1.2-2' | currency:'S/' }} </td>
+      <td>
+        <button type="button" class="btn btn-primary" [routerLink]="['/admin/order', order.id]"><i class="fas fa-info-circle"></i></button>
+      </td>
+    </tr>
+  </tbody>
+</table>

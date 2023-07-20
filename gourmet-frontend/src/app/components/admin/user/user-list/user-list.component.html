@@ -1,0 +1,46 @@
+<h1>Lista de Usuarios</h1>
+
+<div class="text-end">
+  <button class="btn btn-primary ml-2" [routerLink]="['/admin/user/new']">
+    Crear Usuario
+  </button>
+</div>
+
+<table class="table table-hover mt-5">
+  <thead>
+    <tr>
+      <th>Id</th>
+      <th>Usuario</th>
+      <th>Nombre y Apellido</th>
+      <th>DNI</th>
+      <th>Rol</th>
+      <th>Email</th>
+      <th>Fecha Creación</th>
+      <th>Accion</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let user of users">
+      <!-- <td>
+        <div class="d-flex gap-2">
+          <img [src]="user.image | apiImg" style="max-width: 96px">
+          <div class="fw-bold"> {{ user.name }} </div>
+        </div>
+      </td> -->
+      <td> {{ user.id }} </td>
+      <td> {{ user.username }} </td>
+      <td> {{ user.firstname + " " + user.lastname }} </td>
+      <td> {{ user.dni }} </td>
+      <td> {{ user.userType }} </td>
+      <td> {{ user.email }} </td>
+      <td> {{ user.createdAt | date:'dd/MM/yyyy h:m a' }} </td>
+      <!-- <td>
+        <button type="button" class="btn btn-primary" [routerLink]="['/admin/user', user.id, 'stock']"><i class="fas fa-boxes"></i></button>
+      </td> -->
+      <td>
+        <button type="button" class="btn btn-success" [routerLink]="['/admin/user', user.id]"><i class="fas fa-edit"></i></button>
+        <button button type="button" class="btn btn-danger ms-2" (click)="delete(user)"><i class="far fa-trash-alt"></i></button>
+      </td>
+    </tr>
+  </tbody>
+</table>
